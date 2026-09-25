@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: 'Fraunces', serif;
+  --font-sans: 'Work Sans', sans-serif;
+}
+
+* {
+  scrollbar-color: #3a332a #0c0a08;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  background-color: #0c0a08;
+  color: #f2ecdd;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 85% -10%, rgba(198, 154, 60, 0.10), transparent),
+    radial-gradient(ellipse 60% 40% at 0% 100%, rgba(156, 59, 44, 0.06), transparent);
+  background-attachment: fixed;
+}
+
+::selection {
+  background: #c69a3c;
+  color: #0c0a08;
+}
+
+:focus-visible {
+  outline: 2px solid #c69a3c;
+  outline-offset: 3px;
+}
+
+/* Film sprocket perforation column */
+.sprocket {
+  background-image: radial-gradient(circle, #2a251e 1.5px, transparent 1.6px);
+  background-size: 100% 28px;
+  background-repeat: repeat-y;
+}
+
+.grain {
+  position: relative;
+}
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+
+.text-balance {
+  text-wrap: balance;
+}
